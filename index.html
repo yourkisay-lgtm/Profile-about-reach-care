@@ -1,0 +1,1204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learn about REACH-CARE, its purpose, and the community healthcare challenges it aims to address.">
+    <title>About REACH-CARE</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #fff;
+            color: #20313f;
+            font: 15px/1.55 "Segoe UI", Arial, sans-serif;
+        }
+
+        body.landing-page {
+            --landing-teal: #087f83;
+            --landing-dark-teal: #07545c;
+            --landing-ink: #20313f;
+            --landing-muted: #60717b;
+            --landing-mint: #e6f5f3;
+            --landing-line: #dce8e7;
+            color: var(--landing-ink);
+        }
+
+        .landing-page a:focus-visible,
+        .landing-page button:focus-visible {
+            outline: 3px solid #e6a83a;
+            outline-offset: 3px;
+        }
+
+        .landing-page .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .landing-header {
+            position: sticky;
+            z-index: 20;
+            top: 0;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--landing-line);
+            backdrop-filter: blur(12px);
+        }
+
+        .landing-nav-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            width: min(1200px, calc(100% - 48px));
+            min-height: 82px;
+            margin: 0 auto;
+        }
+
+        .landing-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--landing-dark-teal);
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: -0.8px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .landing-brand-mark {
+            display: grid;
+            width: 46px;
+            height: 46px;
+            place-items: center;
+            border-radius: 15px;
+            background: var(--landing-teal);
+            color: #fff;
+            font-size: 35px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .landing-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(14px, 2.3vw, 32px);
+            flex: 1;
+        }
+
+        .landing-nav a,
+        .landing-footer-links a {
+            color: #40545e;
+            font-size: 14px;
+            font-weight: 650;
+            text-decoration: none;
+        }
+
+        .landing-nav a:hover,
+        .landing-footer-links a:hover {
+            color: var(--landing-teal);
+        }
+
+        .landing-nav a[aria-current="page"] {
+            color: var(--landing-teal);
+        }
+
+        .landing-page-main {
+            min-height: 65vh;
+        }
+
+        .landing-nav-cta {
+            display: inline-flex;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 18px;
+            border-radius: 9px;
+            background: var(--landing-teal);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 750;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .landing-nav-cta:hover,
+        .landing-button-primary:hover {
+            background: var(--landing-dark-teal);
+        }
+
+        .landing-menu-toggle {
+            display: none;
+        }
+
+        .landing-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 0 18px;
+            padding: 9px 16px;
+            border-radius: 999px;
+            background: #d8f0ed;
+            color: var(--landing-dark-teal);
+            font-size: 14px;
+            font-weight: 750;
+            letter-spacing: 0.025em;
+        }
+
+        .landing-button {
+            display: inline-flex;
+            min-height: 50px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 21px;
+            border: 1px solid transparent;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: 750;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .landing-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .landing-button-primary {
+            background: var(--landing-teal);
+            color: #fff;
+        }
+
+        .landing-caption-icon {
+            display: grid;
+            width: 43px;
+            height: 43px;
+            flex: 0 0 auto;
+            place-items: center;
+            border-radius: 13px;
+            background: #e2f4ef;
+            color: var(--landing-teal);
+            font-size: 22px;
+        }
+
+        .landing-section {
+            padding: 76px 24px;
+        }
+
+        .landing-subpage-hero {
+            padding: 74px 24px 68px;
+            background: linear-gradient(120deg, #e8f7f5 0%, #f5f9fb 78%, #f0f8f8 100%);
+            text-align: center;
+        }
+
+        .landing-subpage-hero .landing-eyebrow {
+            margin-bottom: 17px;
+        }
+
+        .landing-subpage-hero h1 {
+            max-width: 850px;
+            margin: 0 auto 15px;
+            color: #263844;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 850;
+            letter-spacing: -0.06em;
+            line-height: 1.08;
+        }
+
+        .landing-subpage-hero h1 span {
+            color: var(--landing-teal);
+        }
+
+        .landing-subpage-hero > p:last-child {
+            max-width: 740px;
+            margin: 0 auto;
+            color: var(--landing-muted);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .landing-section-heading {
+            max-width: 720px;
+            margin: 0 auto 36px;
+            text-align: center;
+        }
+
+        .landing-section-heading .landing-eyebrow {
+            margin-bottom: 12px;
+        }
+
+        .landing-page .landing-section h2 {
+            margin: 0 0 13px;
+            color: #263b45;
+            font-size: clamp(1.9rem, 3.2vw, 2.65rem);
+            font-weight: 800;
+            letter-spacing: -0.045em;
+            line-height: 1.16;
+        }
+
+        .landing-section-heading > p:last-child {
+            margin: 0;
+            color: var(--landing-muted);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .landing-about,
+        .landing-ethics,
+        .landing-references {
+            background: #fff;
+        }
+
+        .landing-about-grid,
+        .landing-ethics-grid,
+        .landing-references-list {
+            display: grid;
+            gap: 18px;
+            width: min(1050px, 100%);
+            margin: 0 auto;
+        }
+
+        .landing-about-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .landing-ethics-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .landing-info-card,
+        .landing-ethics-card,
+        .landing-reference-card {
+            border: 1px solid var(--landing-line);
+            border-radius: 15px;
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(29, 66, 72, 0.045);
+        }
+
+        .landing-info-card {
+            padding: 26px;
+        }
+
+        .landing-card-icon {
+            display: grid;
+            width: 44px;
+            height: 44px;
+            margin-bottom: 17px;
+            place-items: center;
+            border-radius: 13px;
+            background: #e4f5f2;
+            color: var(--landing-teal);
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .landing-page .landing-info-card h3,
+        .landing-page .landing-ethics-card h3 {
+            margin: 0 0 9px;
+            color: #293e47;
+            font-size: 18px;
+        }
+
+        .landing-info-card p,
+        .landing-ethics-card p {
+            margin: 0;
+            color: var(--landing-muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .landing-about-callout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            width: min(1050px, calc(100% - 48px));
+            margin: 55px auto;
+            padding: 28px;
+            border: 1px solid #d5e8e4;
+            border-radius: 16px;
+            background: #e8f6f3;
+        }
+
+        .landing-page .landing-about-callout h2 {
+            margin: 0 0 8px;
+            color: #263b45;
+            font-size: 23px;
+            letter-spacing: -0.04em;
+        }
+
+        .landing-about-callout p {
+            max-width: 620px;
+            margin: 0;
+            color: var(--landing-muted);
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .landing-about-callout > div {
+            flex: 1;
+        }
+
+        .landing-about-callout > .landing-button {
+            flex: 0 0 auto;
+        }
+
+        .landing-developer {
+            background: #f5f9f9;
+        }
+
+        .landing-developer-card {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr);
+            gap: 36px;
+            align-items: start;
+            width: min(980px, 100%);
+            margin: 0 auto;
+            padding: 38px;
+            border: 1px solid var(--landing-line);
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(29, 66, 72, 0.045);
+            animation: developer-card-enter 550ms ease-out both;
+            transition: box-shadow 220ms ease, transform 220ms ease;
+        }
+
+        .landing-developer-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 38px rgba(29, 66, 72, 0.1);
+        }
+
+        .landing-developer-photo-wrap {
+            display: grid;
+            justify-items: center;
+            gap: 13px;
+            padding-top: 10px;
+        }
+
+        .landing-developer-photo {
+            display: block;
+            width: min(220px, 100%);
+            aspect-ratio: 1;
+            border: 5px solid #e5f4f2;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 25%;
+            box-shadow: 0 8px 24px rgba(7, 84, 92, 0.12);
+        }
+
+        .landing-developer-photo-caption {
+            color: var(--landing-dark-teal);
+            font-size: 12px;
+            font-weight: 750;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .landing-developer-label {
+            margin: 0 0 8px;
+            color: var(--landing-teal);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .landing-page .landing-developer-details h3 {
+            margin: 0 0 4px;
+            color: #263b45;
+            font-size: 25px;
+        }
+
+        .landing-developer-role {
+            margin: 0 0 18px;
+            color: var(--landing-muted);
+            font-weight: 650;
+        }
+
+        .landing-developer-intro {
+            margin: 0 0 22px;
+            color: var(--landing-muted);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .landing-page .landing-developer-details h4 {
+            margin: 22px 0 5px;
+            color: #293e47;
+            font-size: 15px;
+        }
+
+        .landing-developer-facts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 13px 20px;
+            margin: 14px 0 24px;
+        }
+
+        .landing-developer-facts div {
+            min-width: 0;
+            padding-bottom: 11px;
+            border-bottom: 1px solid #e8efef;
+        }
+
+        .landing-developer-facts dt {
+            margin-bottom: 3px;
+            color: var(--landing-muted);
+            font-size: 11px;
+            font-weight: 750;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .landing-developer-facts dd {
+            margin: 0;
+            color: #293e47;
+            font-size: 14px;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        .landing-developer-facts a,
+        .landing-reference-card a {
+            color: var(--landing-dark-teal);
+            text-underline-offset: 3px;
+        }
+
+        .landing-developer-facts a {
+            text-decoration-thickness: 1px;
+        }
+
+        .landing-developer-facts a:hover,
+        .landing-reference-card a:hover {
+            color: var(--landing-teal);
+        }
+
+        .landing-developer-actions,
+        .landing-developer-socials {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .landing-developer-actions .landing-button {
+            min-height: 44px;
+        }
+
+        .landing-developer-socials a {
+            display: inline-flex;
+            min-height: 40px;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 10px;
+            border: 1px solid var(--landing-line);
+            border-radius: 9px;
+            color: var(--landing-dark-teal);
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+        }
+
+        .landing-developer-socials a:hover {
+            transform: translateY(-2px);
+            border-color: #b6dcd7;
+            background: #eef8f7;
+        }
+
+        .landing-developer-socials svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .landing-developer-socials a:last-child svg {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+        }
+
+        .landing-developer-socials .landing-social-dot {
+            fill: currentColor;
+            stroke: none;
+        }
+
+        .landing-developer-skills {
+            width: min(1050px, 100%);
+            margin: 56px auto 0;
+        }
+
+        .landing-developer-skills-heading {
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        .landing-page .landing-developer-skills-heading h3 {
+            margin: 0 0 7px;
+            color: #263b45;
+            font-size: clamp(1.55rem, 2.8vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .landing-developer-skills-heading p {
+            margin: 0;
+            color: var(--landing-muted);
+            font-size: 14px;
+        }
+
+        .landing-developer-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .landing-developer-skill {
+            min-width: 0;
+            padding: 21px;
+            border: 1px solid var(--landing-line);
+            border-radius: 14px;
+            background: #fff;
+            box-shadow: 0 6px 18px rgba(29, 66, 72, 0.035);
+            transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+        }
+
+        .landing-developer-skill:hover {
+            transform: translateY(-3px);
+            border-color: #b6dcd7;
+            box-shadow: 0 12px 26px rgba(29, 66, 72, 0.08);
+        }
+
+        .landing-skill-icon {
+            display: inline-grid;
+            min-width: 38px;
+            height: 38px;
+            margin-bottom: 13px;
+            padding: 0 7px;
+            place-items: center;
+            border-radius: 11px;
+            background: #e4f5f2;
+            color: var(--landing-dark-teal);
+            font-size: 17px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .landing-skill-icon-text {
+            font-size: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .landing-page .landing-developer-skill h4 {
+            margin: 0 0 7px;
+            color: #293e47;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .landing-developer-skill p {
+            margin: 0;
+            color: var(--landing-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .landing-ethics-card {
+            padding: 25px;
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .landing-ethics-card:hover,
+        .landing-reference-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 13px 30px rgba(29, 66, 72, 0.09);
+        }
+
+        .landing-page .landing-ethics-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .landing-ethics-notice {
+            width: min(1050px, 100%);
+            margin: 22px auto 0;
+            padding: 20px 23px;
+            border-left: 4px solid #d5a23d;
+            border-radius: 8px;
+            background: #fff8e9;
+            color: #4a5558;
+        }
+
+        .landing-ethics-notice strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #39494c;
+        }
+
+        .landing-ethics-notice p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .landing-references-list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            padding: 0;
+            list-style: none;
+        }
+
+        .landing-reference-card {
+            min-width: 0;
+            padding: 24px;
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .landing-page .landing-reference-card h3 {
+            margin: 0 0 10px;
+            color: #293e47;
+            font-size: 17px;
+        }
+
+        .landing-reference-card p {
+            margin: 0 0 12px;
+            color: var(--landing-muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .landing-reference-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .landing-reference-card a {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .landing-reference-note {
+            padding-left: 12px;
+            border-left: 3px solid #d5a23d;
+            font-size: 13px !important;
+        }
+
+        .landing-footer {
+            padding: 46px 24px 18px;
+            background: #123f48;
+            color: #e3f2f1;
+            text-align: left;
+        }
+
+        .landing-footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            width: min(1050px, 100%);
+            margin: 0 auto;
+            padding-bottom: 34px;
+        }
+
+        .landing-footer-brand {
+            color: #fff;
+            font-size: 21px;
+        }
+
+        .landing-footer-brand .landing-brand-mark {
+            width: 37px;
+            height: 37px;
+            border-radius: 12px;
+            background: #168a8b;
+            font-size: 28px;
+        }
+
+        .landing-footer-main > div:first-child p {
+            max-width: 380px;
+            margin: 13px 0 0;
+            color: #c2d7d6;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        .landing-page .landing-footer-links h2 {
+            margin: 0 0 14px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .landing-footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 9px;
+        }
+
+        .landing-footer-links a {
+            color: #c2d7d6;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .landing-footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            width: min(1050px, 100%);
+            margin: 0 auto;
+            padding-top: 17px;
+            border-top: 1px solid rgba(255, 255, 255, 0.17);
+            color: #b6cccb;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        @keyframes developer-card-enter {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 920px) {
+            .landing-ethics-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .landing-nav-wrap {
+                gap: 15px;
+            }
+
+            .landing-menu-toggle {
+                display: grid;
+                width: 44px;
+                height: 44px;
+                margin-left: auto;
+                place-items: center;
+                border: 0;
+                border-radius: 10px;
+                background: transparent;
+                color: var(--landing-dark-teal);
+                cursor: pointer;
+                font-size: 25px;
+            }
+
+            .landing-nav {
+                position: absolute;
+                top: calc(100% - 1px);
+                right: 0;
+                left: 0;
+                display: none;
+                align-items: stretch;
+                padding: 12px 20px 18px;
+                border: 1px solid var(--landing-line);
+                border-top: 0;
+                background: #fff;
+            }
+
+            .landing-nav.is-open {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .landing-nav a {
+                padding: 9px 0;
+            }
+
+            .landing-nav-cta {
+                min-height: 40px;
+                padding: 0 13px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .landing-nav-wrap {
+                width: calc(100% - 32px);
+                min-height: 72px;
+            }
+
+            .landing-brand {
+                gap: 9px;
+                font-size: 22px;
+            }
+
+            .landing-brand-mark {
+                width: 41px;
+                height: 41px;
+                border-radius: 13px;
+                font-size: 31px;
+            }
+
+            .landing-nav-cta {
+                display: none;
+            }
+
+            .landing-section {
+                padding: 58px 20px;
+            }
+
+            .landing-about-grid,
+            .landing-ethics-grid,
+            .landing-references-list,
+            .landing-developer-card {
+                grid-template-columns: 1fr;
+            }
+
+            .landing-developer-card {
+                gap: 24px;
+                padding: 25px;
+            }
+
+            .landing-developer-photo {
+                width: 170px;
+            }
+
+            .landing-developer-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .landing-developer-skills {
+                margin-top: 42px;
+            }
+
+            .landing-developer-skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .landing-about-callout {
+                align-items: stretch;
+                flex-direction: column;
+                width: calc(100% - 40px);
+                margin: 38px auto;
+                padding: 22px;
+            }
+
+            .landing-about-callout > .landing-caption-icon {
+                align-self: flex-start;
+            }
+
+            .landing-footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px 20px;
+            }
+
+            .landing-footer-main > div:first-child {
+                grid-column: 1 / -1;
+            }
+
+            .landing-footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .landing-developer-skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .landing-page *,
+            .landing-page *::before,
+            .landing-page *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="landing-page">
+    <header class="landing-header">
+        <div class="landing-nav-wrap">
+            <a class="landing-brand" href="index.php" aria-label="REACH-CARE home">
+                <span class="landing-brand-mark" aria-hidden="true">+</span>
+                <span>REACH-CARE</span>
+            </a>
+
+            <button class="landing-menu-toggle" type="button" aria-expanded="false" aria-controls="landing-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav class="landing-nav" id="landing-nav" aria-label="Main navigation">
+                <a href="index.php">Home</a>
+                <a href="about.html" aria-current="page">About</a>
+                <a href="services.php">Services</a>
+                <a href="stakeholders.php">Stakeholders</a>
+                <a href="requirements.php">Requirements</a>
+            </nav>
+
+            <a class="landing-nav-cta" href="register.php">Request a Consultation</a>
+        </div>
+    </header>
+    <main class="landing-page-main">
+        <section class="landing-subpage-hero">
+            <p class="landing-eyebrow">About the System</p>
+            <h1>What is <span>REACH-CARE?</span></h1>
+            <p>Remote Evaluation and Accessible Clinic Healthcare Information System is a digital healthcare platform designed to improve healthcare access in remote communities.</p>
+        </section>
+
+        <section class="landing-section landing-about">
+            <div class="landing-section-heading">
+                <p class="landing-eyebrow">Our Mission</p>
+                <h2>Bringing community healthcare closer to home.</h2>
+                <p>REACH-CARE is designed to connect residents in remote barangays with municipal healthcare professionals and provide practical digital tools for local care teams.</p>
+            </div>
+            <div class="landing-about-grid">
+                <article class="landing-info-card">
+                    <span class="landing-card-icon" aria-hidden="true">◎</span>
+                    <h3>Our Purpose</h3>
+                    <p>Make basic healthcare consultations more accessible by connecting residents with municipal doctors and supporting local health workers with digital tools.</p>
+                </article>
+                <article class="landing-info-card">
+                    <span class="landing-card-icon" aria-hidden="true">↗</span>
+                    <h3>The Problem We Solve</h3>
+                    <p>Long travel distances, expensive transportation, paper records, and delayed information can make care difficult. REACH-CARE aims to help reduce these barriers.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="landing-about-callout">
+            <span class="landing-caption-icon" aria-hidden="true">♥</span>
+            <div>
+                <h2>Community first</h2>
+                <p>The system is intended to support—not replace—patients, barangay health workers, doctors, and local health services.</p>
+            </div>
+            <a class="landing-button landing-button-primary" href="stakeholders.php">Meet the Stakeholders</a>
+        </section>
+
+        <section class="landing-section landing-developer" aria-labelledby="developer-heading">
+            <div class="landing-section-heading">
+                <p class="landing-eyebrow">Project Team</p>
+                <h2 id="developer-heading">About the Developer</h2>
+                <p>Meet the person behind the REACH-CARE Information System.</p>
+            </div>
+            <article class="landing-developer-card">
+                <div class="landing-developer-photo-wrap">
+                    <img
+                        class="landing-developer-photo"
+                        src="data:image/jpeg;base64,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"
+                        alt="Portrait of Kyssiah B. Sasing"
+                        width="240"
+                        height="240"
+                    >
+                    <span class="landing-developer-photo-caption">System Developer</span>
+                </div>
+                <div class="landing-developer-details">
+                    <p class="landing-developer-label">Meet the developer</p>
+                    <h3>Kyssiah B. Sasing</h3>
+                    <p class="landing-developer-role">Bachelor of Science in Information Technology · Major in Programming · Southern Leyte State University – Tomas Oppus Campus</p>
+                    <p class="landing-developer-intro">Kyssiah is the developer of REACH-CARE, an information system focused on supporting accessible community healthcare through digital consultation and care-management tools.</p>
+
+                    <h4>Personal Information</h4>
+                    <dl class="landing-developer-facts">
+                        <div><dt>Age</dt><dd>20 years old</dd></div>
+                        <div><dt>Course</dt><dd>Bachelor of Science in Information Technology</dd></div>
+                        <div><dt>Major</dt><dd>Programming</dd></div>
+                        <div><dt>Section</dt><dd>BSIT-303</dd></div>
+                        <div><dt>School</dt><dd>Southern Leyte State University – Tomas Oppus Campus</dd></div>
+                        <div><dt>Address</dt><dd>Paku, Bontoc, Southern Leyte</dd></div>
+                        <div><dt>Email</dt><dd><a href="mailto:kyssiahsasing@gmail.com">kyssiahsasing@gmail.com</a></dd></div>
+                        <div><dt>Contact number</dt><dd><a href="tel:+639973228930">09973228930</a></dd></div>
+                    </dl>
+
+                    <div class="landing-developer-actions">
+                        <a class="landing-button landing-button-primary" href="mailto:kyssiahsasing@gmail.com?subject=REACH-CARE%20Project%20Inquiry">Contact the Developer</a>
+                        <nav class="landing-developer-socials" aria-label="Developer social media">
+                            <a href="https://www.facebook.com/share/1MgWXaDrRU/" target="_blank" rel="noopener noreferrer" aria-label="Visit Kyssiah on Facebook">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V21h3.4Z"/></svg>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="https://www.instagram.com/_szhiaa?srtk=NWVvNmthZ2M2eGph" target="_blank" rel="noopener noreferrer" aria-label="Visit Kyssiah on Instagram">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="landing-social-dot" cx="17.7" cy="6.7" r="1"/></svg>
+                                <span>Instagram</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </article>
+            <div class="landing-developer-skills" aria-labelledby="developer-skills-heading">
+                <div class="landing-developer-skills-heading">
+                    <h3 id="developer-skills-heading">Developer Skills</h3>
+                    <p>Foundational and developing skills used in planning and building REACH-CARE.</p>
+                </div>
+                <div class="landing-developer-skills-grid">
+                    <article class="landing-developer-skill">
+                        <span class="landing-skill-icon" aria-hidden="true">&lt;/&gt;</span>
+                        <h4>Web Development</h4>
+                        <p>Basic knowledge of creating and developing websites.</p>
+                    </article>
+                    <article class="landing-developer-skill">
+                        <span class="landing-skill-icon" aria-hidden="true">#</span>
+                        <h4>HTML &amp; CSS</h4>
+                        <p>Designing and styling web pages.</p>
+                    </article>
+                    <article class="landing-developer-skill">
+                        <span class="landing-skill-icon landing-skill-icon-text" aria-hidden="true">PHP</span>
+                        <h4>PHP Programming</h4>
+                        <p>Developing system functions and handling server-side processes.</p>
+                    </article>
+                    <article class="landing-developer-skill">
+                        <span class="landing-skill-icon" aria-hidden="true">▤</span>
+                        <h4>MySQL Database Management</h4>
+                        <p>Creating, organizing, and managing databases.</p>
+                    </article>
+                    <article class="landing-developer-skill">
+                        <span class="landing-skill-icon landing-skill-icon-text" aria-hidden="true">JS</span>
+                        <h4>JavaScript</h4>
+                        <p>Adding interactive features to web pages.</p>
+                    </article>
+                    <article class="landing-developer-skill">
+                        <span class="landing-skill-icon" aria-hidden="true">↻</span>
+                        <h4>CRUD Operations</h4>
+                        <p>Creating, viewing, updating, and deleting system records.</p>
+                    </article>
+                    <article class="landing-developer-skill">
+                        <span class="landing-skill-icon" aria-hidden="true">◇</span>
+                        <h4>UI/UX Design</h4>
+                        <p>Creating simple, user-friendly, and organized interfaces.</p>
+                    </article>
+                    <article class="landing-developer-skill">
+                        <span class="landing-skill-icon" aria-hidden="true">⌘</span>
+                        <h4>System Analysis and Design</h4>
+                        <p>Understanding system requirements and planning system functions.</p>
+                    </article>
+                    <article class="landing-developer-skill">
+                        <span class="landing-skill-icon" aria-hidden="true">✓</span>
+                        <h4>Problem-Solving</h4>
+                        <p>Identifying and fixing basic system errors and issues.</p>
+                    </article>
+                    <article class="landing-developer-skill">
+                        <span class="landing-skill-icon" aria-hidden="true">⚙</span>
+                        <h4>Basic Troubleshooting</h4>
+                        <p>Finding and resolving common technical problems.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-section landing-ethics" aria-labelledby="ethics-heading">
+            <div class="landing-section-heading">
+                <p class="landing-eyebrow">Responsible Care and Information Use</p>
+                <h2 id="ethics-heading">Policies and Ethical Guidelines</h2>
+                <p>These are the REACH-CARE project's guidelines for responsible handling of personal and health information. They reflect the system's intended use and do not certify legal compliance or institutional approval.</p>
+            </div>
+            <div class="landing-ethics-grid">
+                <article class="landing-ethics-card">
+                    <span class="landing-card-icon" aria-hidden="true">◇</span>
+                    <h3>Data Privacy and Protection</h3>
+                    <p>Collect and use personal and health information only for legitimate, clearly explained system and care purposes. REACH-CARE aims to respect the privacy principles of the Philippine Data Privacy Act of 2012 (Republic Act No. 10173); this statement is not a certification of compliance. The system owner must confirm applicable obligations and safeguards.</p>
+                </article>
+                <article class="landing-ethics-card">
+                    <span class="landing-card-icon" aria-hidden="true">⌑</span>
+                    <h3>Confidentiality of Medical Records</h3>
+                    <p>Consultation details, prescriptions, records, and personal information should be accessed only by authorized users for an authorized purpose and must not be disclosed without proper authority. The application uses role checks and limits patient-facing views to the signed-in patient's own information.</p>
+                </article>
+                <article class="landing-ethics-card">
+                    <span class="landing-card-icon" aria-hidden="true">i</span>
+                    <h3>Informed Consent</h3>
+                    <p>Patients should be told what information is collected, why it is used, and how to ask questions before providing it. Consent should be obtained when required. The current application does not include a dedicated consent-recording workflow; the responsible organization must establish and communicate the appropriate notice and consent process.</p>
+                </article>
+                <article class="landing-ethics-card">
+                    <span class="landing-card-icon" aria-hidden="true">♡</span>
+                    <h3>Respect for Patients</h3>
+                    <p>Treat every patient with dignity, fairness, and respect. Provide access and assistance without discrimination, and respect each person's decisions and rights throughout care and use of the system.</p>
+                </article>
+                <article class="landing-ethics-card">
+                    <span class="landing-card-icon" aria-hidden="true">+</span>
+                    <h3>Patient Safety and Beneficence</h3>
+                    <p>Use REACH-CARE to support patient well-being, care coordination, and communication. It does not replace qualified professional judgment, in-person assessment, or emergency medical services. Doctors and healthcare workers remain responsible for their professional decisions and actions.</p>
+                </article>
+                <article class="landing-ethics-card">
+                    <span class="landing-card-icon" aria-hidden="true">✓</span>
+                    <h3>Transparency and Accountability</h3>
+                    <p>Explain how information is used and limit access to authorized work. Users are responsible for the accuracy and appropriateness of their actions. The application does not currently include a built-in audit log, so operational monitoring and incident response must be established by the responsible organization.</p>
+                </article>
+                <article class="landing-ethics-card">
+                    <span class="landing-card-icon" aria-hidden="true">≋</span>
+                    <h3>Data Accuracy and Integrity</h3>
+                    <p>Enter information carefully and keep records accurate and current. Changes should be made only by authorized personnel and must not intentionally falsify or misrepresent information. Patients who need profile corrections should contact the system administrator; the application currently has no self-service profile editing.</p>
+                </article>
+            </div>
+            <aside class="landing-ethics-notice">
+                <strong>Safeguards and operational responsibilities</strong>
+                <p>The application uses hashed passwords, prepared database statements, role checks, patient-scoped patient views, output escaping, and CSRF checks on protected forms. These code-level controls do not by themselves establish secure hosting, encrypted transmission or storage, protected backups, staff training, access reviews, or a retention and deletion process. The system owner must verify and maintain those operational safeguards and provide users with an approved privacy contact and process for questions or concerns.</p>
+            </aside>
+        </section>
+
+        <section class="landing-section landing-references" aria-labelledby="references-heading">
+            <div class="landing-section-heading">
+                <p class="landing-eyebrow">Further Reading</p>
+                <h2 id="references-heading">References</h2>
+                <p>Sources that inform the ethical guidelines and privacy context presented on this page.</p>
+            </div>
+            <ol class="landing-references-list">
+                <li class="landing-reference-card">
+                    <h3>University Research Ethics Committee policies</h3>
+                    <p>Southern Leyte State University – University Research Ethics Committee (UREC). <em>UREC Policies and Procedures Manual</em>. Pages 8–9 and 25, for the topics of respect for persons, beneficence, justice, informed consent, privacy and confidentiality, transparency, and integrity.</p>
+                    <p class="landing-reference-note">Page details are cited as provided for this project. Consult the current official manual to verify the text and its applicability.</p>
+                </li>
+                <li class="landing-reference-card">
+                    <h3>Philippine Data Privacy Act</h3>
+                    <p>Republic Act No. 10173, <em>Data Privacy Act of 2012</em>, the Philippine legal framework for protecting personal information.</p>
+                    <a href="https://privacy.gov.ph/data-privacy-act/" target="_blank" rel="noopener noreferrer">Read the Act on the National Privacy Commission website</a>
+                </li>
+            </ol>
+        </section>
+    </main>
+    <footer class="landing-footer">
+        <div class="landing-footer-main">
+            <div>
+                <a class="landing-brand landing-footer-brand" href="index.php">
+                    <span class="landing-brand-mark" aria-hidden="true">+</span>
+                    <span>REACH-CARE</span>
+                </a>
+                <p>Remote Evaluation and Accessible Clinic Healthcare Information System</p>
+                <p>Bringing community healthcare closer to home.</p>
+            </div>
+            <div class="landing-footer-links">
+                <h2>Explore</h2>
+                <a href="index.php">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.php">Services</a>
+                <a href="stakeholders.php">Stakeholders</a>
+                <a href="requirements.php">Requirements</a>
+            </div>
+            <div class="landing-footer-links">
+                <h2>Your Account</h2>
+                <a href="register.php">Patient Registration</a>
+                <a href="login.php">Sign In</a>
+            </div>
+        </div>
+        <div class="landing-footer-bottom">
+            <span>&copy; <span id="current-year">2026</span> REACH-CARE. Healthcare access for every community.</span>
+            <span>Academic / System Prototype</span>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('#current-year').textContent = new Date().getFullYear();
+
+        const menuToggle = document.querySelector('.landing-menu-toggle');
+        const navigation = document.querySelector('#landing-nav');
+
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+            navigation.classList.toggle('is-open', !isExpanded);
+        });
+    </script>
+</body>
+</html>
